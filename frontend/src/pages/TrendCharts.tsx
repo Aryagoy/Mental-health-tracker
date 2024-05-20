@@ -71,7 +71,7 @@ export function TrendCharts() {
             }
         };
         fetchData();
-        const interval = setInterval(fetchData, 1000);
+        const interval = setInterval(fetchData, 100);
         return () => clearInterval(interval);
 
     }, [])
