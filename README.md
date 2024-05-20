@@ -25,6 +25,7 @@ Daily Log Form: A form where users can submit their daily mental health status, 
     6. Stress Levels: Self-reported stress levels.
     7. Symptoms of Depression or Anxiety: Presence and severity of specific symptoms.
 Data Visualization: Charts summarizing the user’s weekly trends for any mood, sleep and anxiety levels.
+Real time data analysis: Real time data updates on dashboard.
 
 ## Backend (Node.js)
 API Endpoints:
