@@ -60,7 +60,9 @@ export function TrendCharts() {
         navigate('/');
     }
     useEffect(() => {
+
         const fetchData = async () => {
+            console.log("fetching data...")
             try {
                 const response = await axios.get('http://localhost:5001/logs/weekly', { withCredentials: true });
                 setData(response.data);
@@ -69,6 +71,8 @@ export function TrendCharts() {
             }
         };
         fetchData();
+        const interval = setInterval(fetchData, 1000);
+        return () => clearInterval(interval);
 
     }, [])
     useEffect(() => {
