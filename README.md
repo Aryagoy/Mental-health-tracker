@@ -11,6 +11,8 @@ Usage
 The objective of this project is to create a simple, secure, and user-friendly web application for tracking daily mental health statuses. This application is designed to help patients log their mental health status daily and view trends over time.
 
 ### Features
+## Vault 
+Vault securely stores and manages access to sensitive data like API keys, passwords, certificates, and encryption keys using strong encryption mechanisms. It also enables better compliance with SOC certifications. Vault can generate secrets on-demand, such as database credentials, which are unique, time-limited, and automatically revoked after use, reducing the risk of long-lived credentials.
 
 ## Frontend (React)
 User Authentication: Login with Google for authentication.
@@ -40,18 +42,29 @@ Google Cloud project setup for OAuth 2.0
 
 
 ## Usage
+Vault Setup
+1. Install vault from [https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install] or use `npm install         node-vault dotenv`
+2. Run `vault server -dev`
+3. The above command will give a root token. Copy that root token.
+4. Run these 2 commands in terminal and replace the `s.your-root-token` with the token you copied above:
+        `export VAULT_ADDR='http://127.0.0.1:8200'`
+        `export VAULT_DEV_ROOT_TOKEN_ID='s.your-root-token'`
+5. Enable the KV (Key-Value) secrets engine at the default path
+        `vault secrets enable -path=secret kv`
+6. Store the secrets in vault:
+        `vault kv put secret/google-oauth GOOGLE_CLIENT_ID=your-client-id GOOGLE_CLIENT_SECRET=your-client-secret`
+7. Run `vault kv list secret/` to see the secrets which you have stored.
+
 Backend
 1. Run `npm install`
-2. Create a .env file to store the secrets:
-        GOOGLE_CLIENT_ID=your-google-client-id
-        GOOGLE_CLIENT_SECRET=your-google-client-secret
-3. Run `npx sequelize-cli db:migrate`    
-4. Run `node server.js`        
-5. Run the backend server at [http://localhost:5001] to view the JSON response
+2. Run `npx sequelize-cli db:migrate`    
+3. Run `node server.js`        
+4. Run the backend server at [http://localhost:5001] to view the JSON response
 
 Frontend        
-1. Run `npm install`
-2. Run `npm start`
-3. Runs the app in the development mode.\
+1. Create a .env file and put the environment variable as REACT_APP_UNSPLASH_ACCESS_KEY=your-unsplash-access-key
+2. Run `npm install`
+3. Run `npm start`
+4. Runs the app in the development mode.\
         Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
