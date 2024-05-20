@@ -1,20 +1,24 @@
 ### Mental Health Progress Tracker  
-Table of Contents
-Objective
-Features
-Tech Stack
-Setup Instructions
-Usage
+<img width="1510" alt="Screenshot 2024-05-20 at 7 04 19 PM" src="https://github.com/Aryagoy/Mental-health-tracker/assets/42674731/d10c16a2-a26c-48a8-afa1-eb346380d985">
+
+<img width="1512" alt="Screenshot 2024-05-20 at 7 04 29 PM" src="https://github.com/Aryagoy/Mental-health-tracker/assets/42674731/985782f0-9c78-4aec-b3fd-a558b1033a0d">
+
+## Table of Contents
+- [Vault](#vault)
+- [Frontend (React)](#frontend-react)
+- [Backend (Node.js)](#backend-nodejs)
+- [Setup Instructions](#setup-instructions)
+- [Usage](#usage)
 
 
 ### Objective
 The objective of this project is to create a simple, secure, and user-friendly web application for tracking daily mental health statuses. This application is designed to help patients log their mental health status daily and view trends over time.
 
-### Features
-## Vault 
+## Features
+### Vault 
 Vault securely stores and manages access to sensitive data like API keys, passwords, certificates, and encryption keys using strong encryption mechanisms. It also enables better compliance with SOC certifications. Vault can generate secrets on-demand, such as database credentials, which are unique, time-limited, and automatically revoked after use, reducing the risk of long-lived credentials.
 
-## Frontend (React)
+### Frontend (React)
 User Authentication: Login with Google for authentication.
 Daily Log Form: A form where users can submit their daily mental health status, including:
     1. Mood Ratings: Self-reported mood on a scale from very sad to very happy.
@@ -27,7 +31,7 @@ Daily Log Form: A form where users can submit their daily mental health status, 
 Data Visualization: Charts summarizing the user’s weekly trends for any mood, sleep and anxiety levels.
 Real time data analysis: Real time data updates on dashboard.
 
-## Backend (Node.js)
+### Backend (Node.js)
 API Endpoints:
 User authentication endpoints.
 POST /log: Endpoint to submit daily logs.
@@ -36,15 +40,15 @@ GET /logs/weekly: Get the weekly data for the user
 Database Integration: Used SQLite to store user credentials and daily logs.
 
 ## Setup Instructions
-Prerequisites
-Node.js and npm installed
-SQLite installed
-Google Cloud project setup for OAuth 2.0
+- Prerequisites
+- Node.js and npm installed
+- SQLite installed
+- Google Cloud project setup for OAuth 2.0
 
 
 ## Usage
-Vault Setup
-1. Install vault from [https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install] or use `npm install         node-vault dotenv`
+### Vault Setup
+1. Install vault from [https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install] or use `npm install node-vault dotenv`
 2. Run `vault server -dev`
 3. The above command will give a root token. Copy that root token.
 4. Run these 2 commands in terminal and replace the `s.your-root-token` with the token you copied above:
@@ -56,13 +60,13 @@ Vault Setup
         `vault kv put secret/google-oauth GOOGLE_CLIENT_ID=your-client-id GOOGLE_CLIENT_SECRET=your-client-secret`
 7. Run `vault kv list secret/` to see the secrets which you have stored.
 
-Backend
+### Backend
 1. Run `npm install`
 2. Run `npx sequelize-cli db:migrate`    
 3. Run `node server.js`        
 4. Run the backend server at [http://localhost:5001] to view the JSON response
 
-Frontend        
+### Frontend        
 1. Create a .env file and put the environment variable as REACT_APP_UNSPLASH_ACCESS_KEY=your-unsplash-access-key
 2. Run `npm install`
 3. Run `npm start`
