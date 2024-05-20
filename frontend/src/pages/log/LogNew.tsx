@@ -97,16 +97,19 @@ export function LogNew() {
 
           {/* Mood count */}
           <div className="mb-16 mt-32">{moodComponents[page]}</div>
+          <div className="flex w-full flex-row justify-center content-center mb-5">
+            <Pagination
+              color="primary"
+              count={7}
+              onChange={handleChangeText}
+            />
+            {page == 6 && <Button variant="contained"  color="primary" onClick={handleSubmit}>
+              Submit
+            </Button>}
+          </div>
+
         </Paper>
-        <Pagination
-          className="my-5 mx-auto"
-          color="primary"
-          count={7}
-          onChange={handleChangeText}
-        />
-        {page == 6 && <Button variant="contained" color="primary" onClick={handleSubmit}>
-          Submit
-        </Button>}
+
       </div>
     </div>
   );

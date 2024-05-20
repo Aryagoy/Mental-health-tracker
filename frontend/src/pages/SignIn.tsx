@@ -12,7 +12,7 @@ import NavigationBar from "./NavigationBar.tsx";
 export function SignInPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [backgroundImage, setBackgroundImage] = useState('');
-  const UNSPLASH_ACCESS_KEY = 'Wp3zX6HUpF1McwG7wEHjuGX9IlHs7cw4hDpgTLsWGbg'; 
+  const UNSPLASH_ACCESS_KEY = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
   useEffect(() => {
     fetchBackgroundImage();
   }, []);
@@ -20,7 +20,7 @@ export function SignInPage() {
   const fetchBackgroundImage = async () => {
     try {
       const response = await axios.get(
-        `https://api.unsplash.com/photos/random?query=mental-health&client_id=${UNSPLASH_ACCESS_KEY}`
+        `https://api.unsplash.com/photos/random?query=happy&client_id=${UNSPLASH_ACCESS_KEY}`
       );
       setBackgroundImage(response.data.urls.full);
     } catch (error) {

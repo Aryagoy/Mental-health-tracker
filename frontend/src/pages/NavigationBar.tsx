@@ -27,10 +27,9 @@ export default function NavigationBar({ auth }) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" component={Link} sx={{ flexGrow: 1 }} to='/trends'>
+                    <Typography variant="h6" component={Link} sx={{ flexGrow: 1 }} to='/trends' style={{ textDecoration: "none", color: "inherit" }}>
                         Dashboard
                     </Typography>
-                    <Button color="inherit" onClick={handleNavigate}>{auth ? <span>Welcome</span> : <span>Login</span>}</Button>
                 </Toolbar>
             </AppBar>
         </Box>
